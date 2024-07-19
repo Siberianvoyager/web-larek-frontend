@@ -12,10 +12,8 @@ export interface IProductItem {
   export interface IAppState {
     catalog: IProductItem[];
     preview: string;
-    basket: string[];
+    basket: IProductItem[];
     order: IOrder;
-    total: string | number;
-    loading: boolean;
   }
   
   // Описание списка товаров
@@ -29,16 +27,16 @@ export interface IProductItem {
     address?: string;
     phone?: string;
     email?: string;
-    total?: string | number;
   }
   
   // Описание заказа
   export interface IOrder extends IOrderForm {
-    items: string[];
+    items: IProductItem[];
   }
   
-  // Описание ошибок формы
-  export type FormErrors = Partial<Record<keyof IOrder, string>>;
+// Описание ошибок формы
+export type FormErrors = Partial<Record<keyof IOrderForm, string>>;
+
   
   // Описание результата заказа
   export interface IOrderResult {
